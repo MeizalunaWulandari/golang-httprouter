@@ -58,3 +58,8 @@ Selain `Named Parameter`, ada juga `catch all parameter`, yaitu menangkap semua 
 `Router` juga mendukung static file menggunakan function function `ServeFiles(Path, FileSystem)`<br>
 Dimana pada `Path`, kita harus menggunakan Catch All Parameter<br>
 Sedangkan pada `FileSystem` kita harus melakukan manaual load dari folder atau menggunakan `golang embed` 
+
+## Panic Handler
+Jika terjadi `Panic` secara otomatis akan error dan web akan berhenti mengembalikan response<br>
+Kadang saat terjadi `panic`, kita ingin melakukan sesuatu, misalnya memberitahu terjadi kesalahan di web, atau bahkan mengirim informasi log kesalahan yang terjadi<br>
+Jika kita ingin menangani panic, kita harus membuat `Middleware` khusus secara manual, Namun di `Router` sudah disediakan untuk menangani panic, caranya dengan menggunakan atribute `PanicHandler:func(http.ResponseWriter, *http.Request, interface{})` 
