@@ -9,5 +9,5 @@ https://github.com/julienschmidt/httprouter
 go get github.com/julienschmidt/httprouter
 
 # Install Library untuk unit test
-go get github.com/strechr/testify
+go get github.com/stretchr/testify
 ```
