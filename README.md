@@ -53,3 +53,8 @@ Selain `Named Parameter`, ada juga `catch all parameter`, yaitu menangkap semua 
 `/src/`				 	=> `not match`
 `/src/somefile`		 	=> `match`
 `/src/subdir/somefile`	=> `match`
+
+## Serve File
+`Router` juga mendukung static file menggunakan function function `ServeFiles(Path, FileSystem)`<br>
+Dimana pada `Path`, kita harus menggunakan Catch All Parameter<br>
+Sedangkan pada `FileSystem` kita harus melakukan manaual load dari folder atau menggunakan `golang embed` 
