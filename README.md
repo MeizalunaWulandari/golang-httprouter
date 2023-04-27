@@ -62,4 +62,10 @@ Sedangkan pada `FileSystem` kita harus melakukan manaual load dari folder atau m
 ## Panic Handler
 Jika terjadi `Panic` secara otomatis akan error dan web akan berhenti mengembalikan response<br>
 Kadang saat terjadi `panic`, kita ingin melakukan sesuatu, misalnya memberitahu terjadi kesalahan di web, atau bahkan mengirim informasi log kesalahan yang terjadi<br>
-Jika kita ingin menangani panic, kita harus membuat `Middleware` khusus secara manual, Namun di `Router` sudah disediakan untuk menangani panic, caranya dengan menggunakan atribute `PanicHandler:func(http.ResponseWriter, *http.Request, interface{})` 
+Jika kita ingin menangani panic, kita harus membuat `Middleware` khusus secara manual, Namun di `Router` sudah disediakan untuk menangani panic, caranya dengan menggunakan atribute `PanicHandler:func(http.ResponseWriter, *http.Request, interface{})`
+
+## Not Found Handler
+Selain `panic handler`, Router juga memiliki `not found handler`<br>
+`Not Found Handler` adalah handler yang dieksekusi ketika client mencoba melakukan Request URL yang yang memang tidak terdapat di Router<br>
+Secara Default, jika ada route tidak ditemukan, Router akan melanjutkan request ke `http.NotFound`, namun kita bisa mengubahnya<br>
+Caranya dengan mengubah `router.NotFound = http.Handler` 
