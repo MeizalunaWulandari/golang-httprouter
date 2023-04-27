@@ -34,3 +34,22 @@ Kadang kita butuh membuat `URL` yang tidak fix, alias bisa berubah-ubah, misalny
 ServeMux tidak mendukung hal ini, Namun `Router` mendukung hal tersebut<br>
 Parameter yang dinamis  yang terdapat di URL, secara otomatis dikumpulkan dalam `Params` <br>
 Namun kita harus memberi tahu ketika menambahkan `Route`, dibagian mana kita akan membuat `URL Pathn`nya menjadi dinamis ``/produk/:name``
+
+## Router Pattern
+### Named Parameter
+`Named Parameter` adalah pola pembuatkan parameter dengan menggunakan nama<br>
+Setiap nama parameter harus diawali dengan `:`(titik dua), lalu diikuti dengan nama parameter<br>
+contoh: <br>
+`Pattern` 				`/user/:user`
+`/user/luna`		 =>	`match`
+`/user/you`	 		 => `match`
+`/user/luna/profile` => `not match`
+`/user/`			 => `not match`
+### Catch All Parameter
+Selain `Named Parameter`, ada juga `catch all parameter`, yaitu menangkap semua parameter <br>
+`Catch All Parameter` harus diawali  dengan `*`(Bintang), lalu diikuti dengan nama parameter<br>
+`Catch All Parameter` harus berada diposisi akhir `URL`
+`Pattern` 				`/src/*filepath`
+`/src/`				 	=> `not match`
+`/src/somefile`		 	=> `match`
+`/src/subdir/somefile`	=> `match`
