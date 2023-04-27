@@ -76,3 +76,7 @@ Namun pada `Router`, kita bisa menentukan `HTTP Method` yang ingin kita gunakan<
 Jika client tidak mengirim sesuai HTTP Method yang kita tentukan akan akan terjadi error `Method Not Allowed`<br>
 Secara default, jika terjadi error seperti itu, maka Router akan memanggil function `http.Error`<br>
 Jika ingin mengubahnya kita bisa gunakan `router.MethodNotAllowed = http.Handler`
+
+## Middleware
+`HttpRouter` hanyalah sebuah library untuk `http router` saja, tidak ada fitur lain selain `router`<br>
+Dan karena `Router` merupakan implementasi dari `http.Handler`, jadi untuk `middleware` kita bisa membuatnya sendiri
