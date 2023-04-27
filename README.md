@@ -3,3 +3,11 @@
 HttpRouter terkenal dengan kecepatannya dan juga sangat minimalis <br>
 Hal ini karena HttpRouter Hanya memiliki fitur untuk routing saja<br>
 https://github.com/julienschmidt/httprouter
+# Menambahkan HttpRouter Ke Project 
+```bash
+# Install Library HttpRouter
+go get github.com/julienschmidt/httprouter
+
+# Install Library untuk unit test
+go get github.com/strechr/testify
+```
