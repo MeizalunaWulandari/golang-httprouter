@@ -25,3 +25,12 @@ Cara menambahkan route kedalam Router adalah dengan menggunakan function yang sa
 Saat kita menggunakan `ServeMux`, ketika menambahkan route, kita menambahakan `http.Handler` <br>
 Berbeda dengan Router, pada router kita tidak bisa menggunakan `http.Handler` lagi, melainkan menggunakan  type `httprouter.Handle` <br>
 Perbedaan dengan `http.Handler` adalah, pada `httprouter.Handle`, terdapat parameter ketiga
+
+## Params
+`httprouter.Handle` memiliki parameter ketiga yaitu Params<br>
+`Params` merupakan tempat untuk menyimpan parameter yang dikirim dari client<br>
+Namun `Params` ini bukan `Query Parameter`, melainkan parameter di `URL` <br>
+Kadang kita butuh membuat `URL` yang tidak fix, alias bisa berubah-ubah, misalnya `/produk/1`, `/produk/2`, dan seterusnya<br>
+ServeMux tidak mendukung hal ini, Namun `Router` mendukung hal tersebut<br>
+Parameter yang dinamis  yang terdapat di URL, secara otomatis dikumpulkan dalam `Params` <br>
+Namun kita harus memberi tahu ketika menambahkan `Route`, dibagian mana kita akan membuat `URL Pathn`nya menjadi dinamis ``/produk/:name``
