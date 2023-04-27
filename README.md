@@ -69,3 +69,10 @@ Selain `panic handler`, Router juga memiliki `not found handler`<br>
 `Not Found Handler` adalah handler yang dieksekusi ketika client mencoba melakukan Request URL yang yang memang tidak terdapat di Router<br>
 Secara Default, jika ada route tidak ditemukan, Router akan melanjutkan request ke `http.NotFound`, namun kita bisa mengubahnya<br>
 Caranya dengan mengubah `router.NotFound = http.Handler` 
+
+## Method Not Allowed Handler
+Saat menggunakan `ServeMux`, kita tidak bisa menentukan `HTTP Method` apa yang digunakan untuk Handler<br>
+Namun pada `Router`, kita bisa menentukan `HTTP Method` yang ingin kita gunakan<br>
+Jika client tidak mengirim sesuai HTTP Method yang kita tentukan akan akan terjadi error `Method Not Allowed`<br>
+Secara default, jika terjadi error seperti itu, maka Router akan memanggil function `http.Error`<br>
+Jika ingin mengubahnya kita bisa gunakan `router.MethodNotAllowed = http.Handler`
