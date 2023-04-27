@@ -32,3 +32,24 @@ func TestRouterPatternNamedParameter(t *testing.T) {
 	fmt.Println(string(body))
 
 }
+
+func TestRouterPatternCatchAllParameter(t *testing.T) {
+	router := httprouter.New()
+	router.GET("/images/*image", func(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
+		image := params.ByName("image")
+		text := "Image : " + image
+		fmt.Fprint(writer, text)
+	})
+
+	request := httptest.NewRequest(http.MethodGet, "http://localhost:8000/images/small/profile.png", nil)
+	recorder := httptest.NewRecorder()
+
+	router.ServeHTTP(recorder, request)
+
+	response := recorder.Result()
+	body, _ := io.ReadAll(response.Body)
+
+	assert.Equal(t, "Image : /small/profile.png", string(body))
+	fmt.Println(string(body))
+
+}
